@@ -123,6 +123,10 @@ if ($compress eq "1") {
     system('gzip','--quiet','--force',$dbfile);
     rename("$dbfile.gz", $dbfile);
 };
+if ($compress eq "2") {
+    system('zstd','--quiet','--force',$dbfile);
+    rename("$dbfile.zst", $dbfile);
+};
 
 open(STAMPS, '>', "$stampsfile.new") or die "$program: can't create stamps file $stampsfile.new: $!\n";
 print STAMPS "$stamps{$_}:$_\n" for keys %stamps;

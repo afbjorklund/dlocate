@@ -16,6 +16,7 @@ COMPRESS_DLOCATEDB=0
 GREP='grep'
 [ -e /etc/default/dlocate ] && . /etc/default/dlocate
 [ "$COMPRESS_DLOCATE" = "1" ] && GREP='zgrep'
+[ "$COMPRESS_DLOCATE" = "2" ] && GREP='zstdgrep'
 
 
 function usage {
